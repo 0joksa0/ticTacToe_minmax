@@ -27,7 +27,7 @@ make
 ## Running the Game
 Execute the compiled program:
 ```sh
-./tic_tac_toe
+./ticTacToe
 ```
 
 ## How to Play
