@@ -48,7 +48,6 @@ char* printTable(int depth)
             strcat(buffer, temp);
         }
     }
-    printf("%s", buffer);
     return buffer;
 }
 int check_for_winner()
@@ -170,7 +169,7 @@ int minmax(int depth, int* position, int alpha, int beta, int isMaximizing, Agno
                 printf("Pruning branch at depth %d (alpha: %d, beta: %d)\n", depth, alpha, beta);
                 agsafeset(node, "style", "filled", "");
                 agsafeset(node, "fillcolor", "yellow", "");
-                break; // Alpha-beta pruning
+                break; 
             }
         }
         *position = bestMove;
@@ -195,7 +194,7 @@ int minmax(int depth, int* position, int alpha, int beta, int isMaximizing, Agno
                 printf("Pruning branch at depth %d (alpha: %d, beta: %d)\n", depth, alpha, beta);
                 agsafeset(node, "style", "filled", "");
                 agsafeset(node, "fillcolor", "yellow", "");
-                break; // Alpha-beta pruning
+                break; 
             }
         }
         *position = bestMove;
@@ -234,7 +233,7 @@ int main(int argc, char** argv)
     int playing = 1;
     while (playing == 1) {
         int flag = 0;
-        printTable(0);
+        printf("%s",printTable(0));
         if (table & 1 << 31) {
             printf("X turn\n");
             int choice = chosePosition();
@@ -247,6 +246,6 @@ int main(int argc, char** argv)
         table = flag ? table : table ^ (1 << 31);
         playing = check_for_winner();
     }
-    printTable(0);
+    printf("%s",printTable(0));
     return 0;
 }
