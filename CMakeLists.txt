@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.9.1)
+project(TicTacToe)
+set(CMAKE_C_STANDARD 99) 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GRAPHVIZ REQUIRED libgvc libcgraph)
+add_executable(ticTacToe src/main.c)
+target_include_directories(ticTacToe PRIVATE ${GRAPHVIZ_INCLUDE_DIRS})
+target_link_libraries(ticTacToe PRIVATE ${GRAPHVIZ_LIBRARIES})
